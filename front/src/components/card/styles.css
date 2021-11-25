@@ -1,0 +1,43 @@
+.card {
+    margin: 9% auto 0;
+    width: 50vw;
+    border: 3px solid #2499FF;
+    border-radius: 21px;
+    min-height: 10vh;
+    min-width: 600px;
+    background-color: white;
+}
+
+.header {
+    display: inline-block;
+    margin-left: 26px;
+}
+
+.content span {
+    margin-left: 26px;
+}
+
+.content input {
+    display: block;
+    margin: 10px auto;
+    width: 90%;
+    border: 1px solid black outset;
+    border-radius: 6px;
+    height: 41px;
+    margin: 22px auto;
+}
+
+.footer button{
+    display: block;
+    margin: 10px auto;
+    border: none;
+    border-radius: 5px;
+    background-color: #F59B0A;
+    color: white;
+    height: 29px;
+    width: 110px;
+}
+
+.footer button:hover, .footer button:focus {
+    background-color: #ac6e0c;
+}
