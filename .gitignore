@@ -1,1 +1,6 @@
 /front/node_modules
+/back/__pycache__/
+/back/app/__pycache__/
+/back/app/algorithms/__pycache__/
+/back/venv/
+
