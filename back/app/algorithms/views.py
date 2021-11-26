@@ -1,19 +1,28 @@
 from flask import jsonify
 from . import algorithms
+from . import mergesort as mergeSort
+
+def parseInt(myString):
+	return int(myString)
 
 @algorithms.route('/', methods=['GET'])
 def main():
-	return jsonify({'db': 'games'})
+	return jsonify({'response': 'algorithms index'})
 
-@algorithms.route('/merge', methods=['GET'])
-def merge():
-	return jsonify({'answer': [1,2,3,4,5],
-		'sort': 'merge'})
+@algorithms.route('/merge/<array>', methods=['GET'])
+def merge(array):
+	try:
+		myarr = list(map(parseInt,array.replace(' ','').split(',')))
+	except: return jsonify({'response': 'error'})
+	print(myarr)
+	return jsonify({'given array' : array,
+		'answer': mergeSort.sort(myarr),
+		'sort': 'Merge Sort'})
 
 @algorithms.route('/quick', methods=['GET'])
 def quick():
 	return jsonify({'answer': [1,2,3,4,5],
-		'sort': 'quick'})
+		'sort': 'Quick Sort'})
 
 @algorithms.route('/bubble', methods=['GET'])
 def bubble():
