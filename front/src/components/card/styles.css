@@ -41,3 +41,13 @@
 .footer button:hover, .footer button:focus {
     background-color: #ac6e0c;
 }
+
+#result {
+    display: block;
+    margin: 20px auto;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    height: 200px;
+    width: 90%;
+}
