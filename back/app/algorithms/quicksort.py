@@ -1,37 +1,22 @@
-def sort(arr):
-    if len(arr) > 1:
-  
-        mid = len(arr)//2
-        leftArr = arr[:mid]
-        rightArr = arr[mid:]
+def partition(arr, low, high):
+    i = (low-1)
+    pivot = arr[high]
+ 
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i = i+1
+            arr[i], arr[j] = arr[j], arr[i]
 
-        sort(leftArr)
-        sort(rightArr)
-  
-        i = 0
-        j = 0
-        k = 0
-  
-        while i < len(leftArr) and j < len(rightArr):
-            #print("{} : {}".format("number ", leftArr[i]))
-            
-            if leftArr[i] < rightArr[j]:
-                arr[k] = leftArr[i]
-                i += 1
-            else:
-                arr[k] = rightArr[j]
-                j += 1
-            k += 1
+    arr[i+1], arr[high] = arr[high], arr[i+1]
+    return (i+1)
+ 
+ 
+def sort(arr, low, high):
+    if len(arr) == 1:
+        return arr
+    if low < high:
+        pi = partition(arr, low, high)
 
-
-        while i < len(leftArr):
-            arr[k] = leftArr[i]
-            i += 1
-            k += 1
-  
-        while j < len(rightArr):
-            arr[k] = rightArr[j]
-            j += 1
-            k += 1
-
+        sort(arr, low, pi-1)
+        sort(arr, pi+1, high)
     return arr

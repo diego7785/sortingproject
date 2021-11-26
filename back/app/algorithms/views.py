@@ -31,7 +31,7 @@ def quick():
 	except: return jsonify({'response': 'error'})
 	print(myarr)
 	return jsonify({'given array' : array,
-		'answer': quickSort.sort(myarr),
+		'answer': quickSort.sort(myarr,0,len(myarr)-1),
 		'sort': 'Quick Sort'})
 
 @algorithms.route('/bubble', methods=['POST'])
