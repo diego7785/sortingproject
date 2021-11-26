@@ -3,6 +3,7 @@ from . import algorithms
 from . import mergesort as mergeSort
 from . import quicksort as quickSort
 from . import bubblesort as bubbleSort
+from . import selectionsort as selectionSort
 
 def parseInt(myString):
 	return int(myString)
