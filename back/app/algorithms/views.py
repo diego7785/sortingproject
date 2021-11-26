@@ -1,6 +1,8 @@
-from flask import jsonify
+from flask import jsonify,request
 from . import algorithms
 from . import mergesort as mergeSort
+from . import quicksort as quickSort
+from . import bubblesort as bubbleSort
 
 def parseInt(myString):
 	return int(myString)
@@ -9,8 +11,9 @@ def parseInt(myString):
 def main():
 	return jsonify({'response': 'algorithms index'})
 
-@algorithms.route('/merge/<array>', methods=['GET'])
-def merge(array):
+@algorithms.route('/merge', methods=['POST'])
+def merge():
+	array = request.json.get("array")
 	try:
 		myarr = list(map(parseInt,array.replace(' ','').split(',')))
 	except: return jsonify({'response': 'error'})
@@ -19,17 +22,35 @@ def merge(array):
 		'answer': mergeSort.sort(myarr),
 		'sort': 'Merge Sort'})
 
-@algorithms.route('/quick', methods=['GET'])
+@algorithms.route('/quick', methods=['POST'])
 def quick():
-	return jsonify({'answer': [1,2,3,4,5],
+	array = request.json.get("array")
+	try:
+		myarr = list(map(parseInt,array.replace(' ','').split(',')))
+	except: return jsonify({'response': 'error'})
+	print(myarr)
+	return jsonify({'given array' : array,
+		'answer': quickSort.sort(myarr),
 		'sort': 'Quick Sort'})
 
-@algorithms.route('/bubble', methods=['GET'])
+@algorithms.route('/bubble', methods=['POST'])
 def bubble():
-	return jsonify({'answer': [1,2,3,4,5],
-		'sort': 'bubble'})
+	array = request.json.get("array")
+	try:
+		myarr = list(map(parseInt,array.replace(' ','').split(',')))
+	except: return jsonify({'response': 'error'})
+	print(myarr)
+	return jsonify({'given array' : array,
+		'answer': bubbleSort.sort(myarr),
+		'sort': 'Bubble Sort'})
 
-@algorithms.route('/selection', methods=['GET'])
+@algorithms.route('/selection', methods=['POST'])
 def selection():
-	return jsonify({'answer': [1,2,3,4,5],
-		'sort': 'selection'})
+	array = request.json.get("array")
+	try:
+		myarr = list(map(parseInt,array.replace(' ','').split(',')))
+	except: return jsonify({'response': 'error'})
+	print(myarr)
+	return jsonify({'given array' : array,
+		'answer': selectionSort.sort(myarr),
+		'sort': 'Selection Sort'})
