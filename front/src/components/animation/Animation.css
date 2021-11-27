@@ -3,6 +3,7 @@
     min-height: 320px;
     min-width: 90%;
     text-align: center;
+    transform: rotate(180deg);
 }
 
 .listBlocks > .block{
@@ -16,4 +17,5 @@
     transition-duration: 150ms;
     transition-property: height;
     transition-timing-function: ease-in;
+    transform: rotate(180deg);
 }
