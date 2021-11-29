@@ -24,7 +24,7 @@ After the cypress window has opened you can run the only test that is available 
 Once the project is installed you can run the following command: ```npm start``` inside the front folder.
 Access to http://localhost:3000/ to see the project.
 When it loads it will show a card with an input field and 4 buttons, one for each sorting algorithm.
-The array that is wanted to be sorted needs to be typed in the input field separated by commas, no spaces are needed, but even if there are spaces they will be ignored. The array typed should look like this:
+The array that is wanted to be sorted needs to be typed in the input field separated by commas, no spaces needed. The array typed should look like this:
 
 3,5,1,7,9,4,7,3
 

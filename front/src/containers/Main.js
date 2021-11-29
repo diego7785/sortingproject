@@ -89,9 +89,17 @@ function App() {
     if (!res) {
       alert("Please enter an array");
     } else {
-      setBlocks(arrayTo.split(",").map(Number));
-      setAlgorithm(1);
-      setLoading(true);
+      let numbers = true;
+      const nArray = arrayTo.split(",").map((it) => 
+      /^\d+$/.test(it) ? parseInt(it) : numbers=false
+      );
+      if(!numbers){
+        alert("Please enter a valid array")
+      } else {
+        setBlocks(nArray);
+        setAlgorithm(1);
+        setLoading(true);
+      }
     }
   };
 
@@ -100,9 +108,17 @@ function App() {
     if (!res) {
       alert("Please enter an array");
     } else {
-      setBlocks(arrayTo.split(",").map(Number));
-      setAlgorithm(2);
-      setLoading(true);
+      let numbers = true;
+      const nArray = arrayTo.split(",").map((it) => 
+      /^\d+$/.test(it) ? parseInt(it) : numbers=false
+      );
+      if(!numbers){
+        alert("Please enter a valid array")
+      } else {
+        setBlocks(nArray);
+        setAlgorithm(2);
+        setLoading(true);
+      }
     }
   };
 
@@ -111,9 +127,17 @@ function App() {
     if (!res) {
       alert("Please enter an array");
     } else {
-      setBlocks(arrayTo.split(",").map(Number));
-      setAlgorithm(3);
-      setLoading(true);
+      let numbers = true;
+      const nArray = arrayTo.split(",").map((it) => 
+      /^\d+$/.test(it) ? parseInt(it) : numbers=false
+      );
+      if(!numbers){
+        alert("Please enter a valid array")
+      } else {
+        setBlocks(nArray);
+        setAlgorithm(3);
+        setLoading(true);
+      }
     }
   };
 
@@ -122,9 +146,17 @@ function App() {
     if (!res) {
       alert("Please enter an array");
     } else {
-      setBlocks(arrayTo.split(",").map(Number));
-      setAlgorithm(4);
-      setLoading(true);
+      let numbers = true;
+      const nArray = arrayTo.split(",").map((it) => 
+      /^\d+$/.test(it) ? parseInt(it) : numbers=false
+      );
+      if(!numbers){
+        alert("Please enter a valid array")
+      } else {
+        setBlocks(nArray);
+        setAlgorithm(4);
+        setLoading(true);
+      }
     }
   };
 
