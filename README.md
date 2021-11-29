@@ -1,8 +1,8 @@
 # sortingproject
 Sorting project for Project signature 
 
-Ricardo Pedreros
-Diego Bonilla
+- Ricardo Pedreros
+- Diego Bonilla
 
 
 ## Description
