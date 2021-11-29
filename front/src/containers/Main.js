@@ -84,7 +84,7 @@ function App() {
     return true;
   };
 
-  const handleSortMerge = () => {
+  const handleSort = (ind) => {
     const res = checkArray();
     if (!res) {
       alert("Please enter an array");
@@ -97,68 +97,11 @@ function App() {
         alert("Please enter a valid array")
       } else {
         setBlocks(nArray);
-        setAlgorithm(1);
+        setAlgorithm(ind);
         setLoading(true);
       }
     }
-  };
-
-  const handleSortQuick = () => {
-    const res = checkArray();
-    if (!res) {
-      alert("Please enter an array");
-    } else {
-      let numbers = true;
-      const nArray = arrayTo.split(",").map((it) => 
-      /^\d+$/.test(it) ? parseInt(it) : numbers=false
-      );
-      if(!numbers){
-        alert("Please enter a valid array")
-      } else {
-        setBlocks(nArray);
-        setAlgorithm(2);
-        setLoading(true);
-      }
-    }
-  };
-
-  const handleSortBubble = () => {
-    const res = checkArray();
-    if (!res) {
-      alert("Please enter an array");
-    } else {
-      let numbers = true;
-      const nArray = arrayTo.split(",").map((it) => 
-      /^\d+$/.test(it) ? parseInt(it) : numbers=false
-      );
-      if(!numbers){
-        alert("Please enter a valid array")
-      } else {
-        setBlocks(nArray);
-        setAlgorithm(3);
-        setLoading(true);
-      }
-    }
-  };
-
-  const handleSortSelection = () => {
-    const res = checkArray();
-    if (!res) {
-      alert("Please enter an array");
-    } else {
-      let numbers = true;
-      const nArray = arrayTo.split(",").map((it) => 
-      /^\d+$/.test(it) ? parseInt(it) : numbers=false
-      );
-      if(!numbers){
-        alert("Please enter a valid array")
-      } else {
-        setBlocks(nArray);
-        setAlgorithm(4);
-        setLoading(true);
-      }
-    }
-  };
+  }
 
   return loading ? (
     <Card>
@@ -196,10 +139,10 @@ function App() {
         <span>Sort using:</span>
       </div>
       <div className="footer">
-        <button onClick={handleSortMerge}>Merge Sort</button>
-        <button onClick={handleSortQuick}>Quick Sort</button>
-        <button onClick={handleSortBubble}>Bubble Sort</button>
-        <button onClick={handleSortSelection}>Selection Sort</button>
+        <button onClick={(e) => handleSort(1)}>Merge Sort</button>
+        <button onClick={(e) => handleSort(2)}>Quick Sort</button>
+        <button onClick={(e) => handleSort(3)}>Bubble Sort</button>
+        <button onClick={(e) => handleSort(4)}>Selection Sort</button>
       </div>
     </Card>
   );
