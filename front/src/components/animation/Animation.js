@@ -39,6 +39,7 @@ function Animation({ blocks, compare, sorted, swap }){
 
                 const style = {
                     'backgroundColor': bg,
+                    'color': color,
                     'height': height, 
                     'width': width
                 }

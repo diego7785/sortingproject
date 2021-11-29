@@ -31,43 +31,45 @@ function App() {
     }
   }, [blocks]);
 
+  // Sorts the array using the animation
+  const sortUsingOrder = (order)  => {
+    function loop(i) {
+      setTimeout(function () {
+        const [j, k, arr, index] = order[i];
+        setCompare([j, k]);
+        setSwap([]);
+
+        if (index !== null) {
+          setSortedIndex([...sortedIndex, index]);
+        }
+
+        if (arr) {
+          setBlocks(arr);
+          setSwap([j, k]);
+        }
+
+        if (++i < order.length) {
+          loop(i)
+        } else {
+          setSorting(false);
+        }
+      }, 150);
+    }
+    loop(0)
+  }
+
   // Sorting according to the algorithm
   const handleSortHelper = () => {
-    const sortAccOrder = (order) => {
-      (function loop(i) {
-        setTimeout(function () {
-          const [j, k, arr, index] = order[i];
-          setCompare([j, k]);
-          setSwap([]);
-
-          if (index !== null) {
-            setSortedIndex([...sortedIndex, index]);
-          }
-
-          if (arr) {
-            setBlocks(arr);
-            setSwap([j, k]);
-          }
-
-          if (++i < order.length) {
-            loop(i);
-          } else {
-            setSorting(false);
-          }
-        }, 150);
-      })(0);
-    };
-
     setSorting(true);
 
     algorithm === 1
-      ? sortAccOrder(mergeSort(blocks))
+      ? sortUsingOrder(mergeSort(blocks))
       : algorithm === 2
-      ? sortAccOrder(quickSort(blocks))
+      ? sortUsingOrder(quickSort(blocks))
       : algorithm === 3
-      ? sortAccOrder(bubbleSort(blocks))
+      ? sortUsingOrder(bubbleSort(blocks))
       : algorithm === 4
-      ? sortAccOrder(selectionSort(blocks))
+      ? sortUsingOrder(selectionSort(blocks))
       : setSorting(false);
   };
 
