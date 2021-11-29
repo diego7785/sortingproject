@@ -1,14 +1,12 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import NotFound from './pages/NotFound';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Input from './pages/Input';
 
 function App() {
   return ( 
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Input />} />
-        <Route exact path="*" element={<NotFound/>} />
+        <Route path="*" element={<Input />} />
       </Routes>
     </BrowserRouter>
   )
