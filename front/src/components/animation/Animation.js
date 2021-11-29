@@ -2,19 +2,9 @@ import React, { useState, useEffect } from 'react'
 import './Animation.css'
 
 function Animation({ blocks, compare, sorted, swap }){
-    const [width, setWidth] = useState(Math.min(20, Math.ceil(window.innerWidth / blocks.length) - 5))
+    const [width, _] = useState(Math.min(20, Math.ceil(window.innerWidth / blocks.length)))
     const color = blocks.length <= 50 && width > 14 ? 'black' : 'transparent' // If there are more than 50 numbers
     // the color of the numbers will be transparent otherwise black
-
-    useEffect(() => {
-        const handleResize = () => {
-            setWidth(Math.min(20, Math.ceil(window.innerWidth / blocks.length) - 8))
-        }
-
-        window.addEventListener('resize', handleResize)
-
-        setWidth(Math.min(20, Math.ceil(window.innerWidth / blocks.length) - 8))
-    }, [blocks.length])
 
     return (
         <div className='listBlocks'>
@@ -32,6 +22,7 @@ function Animation({ blocks, compare, sorted, swap }){
                 if(swap && (i === swap[0] || i === swap[1])){
                     bg='red'
                 }
+
                 // i th element is in its correct position
                 if(sorted && sorted.includes(i)){
                     bg = '#4bc52e'
