@@ -21,6 +21,29 @@ function App() {
   const [first, setFirst] = useState(0);
   const [loading, setLoading] = useState(false);
 
+  const algorithms = [
+    { 
+      id: 1,
+      name: "Merge Sort",
+      method: mergeSort
+    },
+    { 
+      id: 2,
+      name: "Quick Sort",
+      method: quickSort
+    },
+    { 
+      id: 3,
+      name: "Bubble Sort",
+      method: bubbleSort
+    },
+    { 
+      id: 4,
+      name: "Selection Sort",
+      method: selectionSort
+    }
+  ]
+
   useEffect(() => {
     if (first === 0) {
       setFirst(1);
@@ -62,15 +85,8 @@ function App() {
   const handleSortHelper = () => {
     setSorting(true);
 
-    algorithm === 1
-      ? sortUsingOrder(mergeSort(blocks))
-      : algorithm === 2
-      ? sortUsingOrder(quickSort(blocks))
-      : algorithm === 3
-      ? sortUsingOrder(bubbleSort(blocks))
-      : algorithm === 4
-      ? sortUsingOrder(selectionSort(blocks))
-      : setSorting(false);
+    const { method } = algorithms.find(algo => algo.id === algorithm);
+    sortUsingOrder(method(blocks))
   };
 
   const handleArrayChange = (event) => {
@@ -139,10 +155,15 @@ function App() {
         <span>Sort using:</span>
       </div>
       <div className="footer">
-        <button onClick={(e) => handleSort(1)}>Merge Sort</button>
-        <button onClick={(e) => handleSort(2)}>Quick Sort</button>
-        <button onClick={(e) => handleSort(3)}>Bubble Sort</button>
-        <button onClick={(e) => handleSort(4)}>Selection Sort</button>
+        {
+          algorithms.map((it) => (
+            <button
+            onClick={() => handleSort(it.id)}
+            >
+              {it.name}
+            </button>
+          ))
+        }
       </div>
     </Card>
   );
