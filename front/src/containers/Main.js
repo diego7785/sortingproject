@@ -11,7 +11,7 @@ import quickSort from "../algorithms/quickSort";
 
 function App() {
   // States
-  const [algo, setAlgo] = useState();
+  const [algorithm, setAlgorithm] = useState();
   const [blocks, setBlocks] = useState([]);
   const [sorting, setSorting] = useState(false);
   const [compare, setCompare] = useState([]);
@@ -60,13 +60,13 @@ function App() {
 
     setSorting(true);
 
-    algo === 1
+    algorithm === 1
       ? sortAccOrder(mergeSort(blocks))
-      : algo === 2
+      : algorithm === 2
       ? sortAccOrder(quickSort(blocks))
-      : algo === 3
+      : algorithm === 3
       ? sortAccOrder(bubbleSort(blocks))
-      : algo === 4
+      : algorithm === 4
       ? sortAccOrder(selectionSort(blocks))
       : setSorting(false);
   };
@@ -85,10 +85,10 @@ function App() {
   const handleSortMerge = () => {
     const res = checkArray();
     if (!res) {
-      alert("Please enter the array");
+      alert("Please enter an array");
     } else {
       setBlocks(arrayTo.split(",").map(Number));
-      setAlgo(1);
+      setAlgorithm(1);
       setLoading(true);
     }
   };
@@ -96,10 +96,10 @@ function App() {
   const handleSortQuick = () => {
     const res = checkArray();
     if (!res) {
-      alert("Please enter the array");
+      alert("Please enter an array");
     } else {
       setBlocks(arrayTo.split(",").map(Number));
-      setAlgo(2);
+      setAlgorithm(2);
       setLoading(true);
     }
   };
@@ -107,10 +107,10 @@ function App() {
   const handleSortBubble = () => {
     const res = checkArray();
     if (!res) {
-      alert("Please enter the array");
+      alert("Please enter an array");
     } else {
       setBlocks(arrayTo.split(",").map(Number));
-      setAlgo(3);
+      setAlgorithm(3);
       setLoading(true);
     }
   };
@@ -118,16 +118,22 @@ function App() {
   const handleSortSelection = () => {
     const res = checkArray();
     if (!res) {
-      alert("Please enter the array");
+      alert("Please enter an array");
     } else {
       setBlocks(arrayTo.split(",").map(Number));
-      setAlgo(4);
+      setAlgorithm(4);
       setLoading(true);
     }
   };
 
   return loading ? (
     <Card>
+      {
+        !sorting && 
+        <div className="header">
+          ¡Array sorted!
+        </div>
+      }
       <Animation
         blocks={blocks}
         compare={sorting && compare}

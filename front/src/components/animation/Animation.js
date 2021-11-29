@@ -3,7 +3,8 @@ import './Animation.css'
 
 function Animation({ blocks, compare, sorted, swap }){
     const [width, setWidth] = useState(Math.min(20, Math.ceil(window.innerWidth / blocks.length) - 5))
-    const color = blocks.length <= 50 && width > 14 ? 'black' : 'transparent'
+    const color = blocks.length <= 50 && width > 14 ? 'black' : 'transparent' // If there are more than 50 numbers
+    // the color of the numbers will be transparent otherwise black
 
     useEffect(() => {
         const handleResize = () => {
@@ -20,13 +21,14 @@ function Animation({ blocks, compare, sorted, swap }){
 
             {blocks.map((block, i) => {
                 const height = block * 200 / blocks.length;
-                let bg = 'turquoise'
+                let bg = '#2499FF'
 
                 // i th element is being compared with some other element
                 if(compare && (i === compare[0] || i === compare[1])){
-                    bg = '#ffff50'
+                    bg = '#F59B0A'
                 }
-
+                
+                // i th element is being swapped with some other element
                 if(swap && (i === swap[0] || i === swap[1])){
                     bg='red'
                 }
@@ -37,7 +39,6 @@ function Animation({ blocks, compare, sorted, swap }){
 
                 const style = {
                     'backgroundColor': bg,
-                    'color': color, 
                     'height': height, 
                     'width': width
                 }

@@ -1,14 +1,14 @@
 .listBlocks{
     margin: 0 auto;
-    min-height: 320px;
+    min-height: 220px;
     min-width: 90%;
     text-align: center;
-    transform: rotate(180deg);
+    transform: rotateX(180deg);
 }
 
 .listBlocks > .block{
-    background-color: turquoise;
-    color: #282c34;
+    background-color: #2499FF;
+    color: black;
     display: inline-block;
     font-size: 10px;
     font-weight: bold;
@@ -17,5 +17,5 @@
     transition-duration: 150ms;
     transition-property: height;
     transition-timing-function: ease-in;
-    transform: rotate(180deg);
+    transform: rotateX(180deg);
 }
